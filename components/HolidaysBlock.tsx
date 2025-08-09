@@ -49,7 +49,7 @@ export default function HolidaysBlock({
   const merged = useMemo(() => {
     const rows = mergeAndDedupe(raw, settings.applyToObserved).map((row) => ({
       ...row,
-      buffer: Math.min(perDateBuffer[row.date] ?? row.suggestBufferDays, settings.maxBufferDays),
+      buffer: Math.min(perDateBuffer[row.date] ?? row.buffer, settings.maxBufferDays),
       enabled: perDateEnabled[row.date] ?? true,
     }));
     onChange({ settings, merged: rows });
